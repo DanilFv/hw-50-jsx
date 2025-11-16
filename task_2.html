@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link
+        rel="stylesheet"
+        href="task_2_style.css"
+    >
+</head>
+<body>
+
+<div id="app"></div>
+
+
+<script type="text/babel">
+
+
+    const container = document.getElementById('app');
+
+    const Header = ({logo, phone}) => {
+      return (
+          <div className="logo-block">
+              <div className="container content-logo-info">
+                  <a
+                      href="#"
+                      className="logo"
+                  >
+                      <img
+                          src={logo}
+                          alt={logo ? "Логотип" : "Нет логотипа"}
+                      />
+                  </a>
+                  <div className="delivery-guard">
+                      <span className="delivery">Бесплатная <br />доставка</span>
+                      <span className="guard">Защита <br />покупателей</span>
+                  </div>
+
+                  <div className="tel">
+                      <span className="phone">{phone}</span>
+                      <button
+                          className="btn-call"
+                          type="button"
+                      >Заказать звонок
+                      </button>
+                  </div>
+              </div>
+          </div>
+      );
+    };
+
+    ReactDOM.render(<Header logo='images/logo.png' phone='(845) 147-6110' />, container);
+
+</script>
+
+</body>
+</html>
