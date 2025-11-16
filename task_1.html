@@ -23,6 +23,30 @@
 
 <script type="text/babel">
 
+    const container = document.getElementById('app');
+
+    const Movie = (props) => {
+     return (
+            <div className="movie">
+                 <img
+                    src={props.img}
+                     alt={props.name}
+                 />
+                 <h1 className="title">{props.name}</h1>
+                 <span><strong>Year: {props.year}</strong></span>
+            </div>
+        );
+    };
+
+    const moviesBlock = (
+      <div className="cards">
+          <Movie img='https://i.pinimg.com/736x/0b/b2/17/0bb2178b58385bc1a836a422dc0955e6.jpg' name='The Wolf of Wall Street' year={2013} />
+          <Movie img='https://i.pinimg.com/736x/1b/c2/03/1bc203ba8b1e7b7ffb6ffd82450d56ba.jpg' name='THE GENTLEMEN' year={2019} />
+          <Movie img='https://i.pinimg.com/736x/59/d3/a6/59d3a64eb0aae9b906b6958417d22a31.jpg' name='FIGHT CLUB' year={1999} />
+      </div>
+    );
+
+    ReactDOM.render(moviesBlock, container);
 
 
 </script>
