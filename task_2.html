@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div id="app" class="container"></div>
+<div id="app"></div>
 
 
 <script type="text/babel">
@@ -80,7 +80,7 @@
 
     const Sidebar = () => {
         return (
-            <aside className="sidebar content">
+            <aside className="sidebar content container">
                 <nav className="ingredients">
                     <h3>Ингредиенты</h3>
                     <ul>
@@ -107,22 +107,87 @@
                         </li>
                     </ul>
                 </nav>
-                 <div className="recipes-cards">
-                     <CheeseCard name='Молодые сыры' imgUrl="uploads/Receipes-1.jpg" />
-                     <CheeseCard name='Твердые сыры' imgUrl="uploads/img2.png" />
-                     <CheeseCard name='Полутвердые сыры' imgUrl="uploads/img3.png" />
-                     <CheeseCard name='Паста филата' imgUrl="uploads/img4.jpg" />
-                     <CheeseCard name='Кисломолочные сыры' imgUrl="uploads/img5.png" />
-                     <CheeseCard name='Рассольные сыры' imgUrl="uploads/img6.png" />
-                </div>
             </aside>
+        );
+    };
+
+
+    const MainCard = ({image, cardTitle, cardText}) => {
+      return (
+          <div className="last-card">
+            <div className="last-img-wrapper">
+              <img src={image} alt={cardTitle} />
+            </div>
+            <div className="last-card-info">
+              <h4 className="last-card-title">{cardTitle}</h4>
+              <p className="last-card-text">{cardText}</p>
+            </div>
+            <div className="card-link-wrapper">
+              <a href="#" className="card-link-read">Читать далее</a>
+            </div>
+          </div>
+      )
+    };
+
+    const MainBlock = ({title}) => {
+        return (
+            <div className="container content">
+                <Sidebar />
+
+                <div className="content-right">
+                     <div className="recipes-cards">
+                        <CheeseCard name='Молодые сыры' imgUrl="uploads/Receipes-1.jpg" />
+                        <CheeseCard name='Твердые сыры' imgUrl="uploads/img2.png" />
+                        <CheeseCard name='Полутвердые сыры' imgUrl="uploads/img3.png" />
+                        <CheeseCard name='Паста филата' imgUrl="uploads/img4.jpg" />
+                        <CheeseCard name='Кисломолочные сыры' imgUrl="uploads/img5.png" />
+                        <CheeseCard name='Рассольные сыры' imgUrl="uploads/img6.png" />
+                    </div>
+                    <div className="last-added-block">
+                        <h2 className="last-added-title">{title}</h2>
+                        <div className="last-cards">
+                            <MainCard image='uploads/last-img1.png' cardTitle='Сырная тарелка' cardText='Особенно характерно наличие дырочек разных размеров в структуре швейцарских сортов...' />
+                            <MainCard image='uploads/last-img2.png' cardTitle='Откуда в сыре дырки?' cardText='Особенно характерно наличие в структуре швейцарских сортов' />
+                            <MainCard image='uploads/last-img3.png' cardTitle='Сырная диета' cardText='Особенно характерно наличие дырочек разных размеров в структуре швейцарских сортов...' />
+                            <MainCard image='uploads/last-img4.png' cardTitle='Спосол сырной головки' cardText='Особенно характерно наличие дырочек разных размеров в структуре швейцарских сортов...' />
+                            <MainCard image='uploads/last-img5.png' cardTitle='Сырная тарелка' cardText='Особенно характерно наличие дырочек разных размеров в структуре швейцарских сортов...' />
+                            <MainCard image='uploads/last-img6.png' cardTitle='Откуда в сыре дырки?' cardText='Особенно характерно наличие дырочек разных размеров в структуре швейцарских сортов...' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    const Footer = ({address, paymentMethods}) => {
+        return (
+            <footer className="footer">
+                <div className="container footer-inner">
+                    <div className="payment-info">
+                        <span className="payment-text">Способы оплаты</span>
+                        <div className="payment-methods">
+                            {paymentMethods.map((method) => (
+                                <a href="#" key={method} className={method}>
+                                    {method}
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <p className="adress">{address}</p>
+                </div>
+            </footer>
         );
     };
 
     const content = (
         <div className="content-block">
-            <Header logo='images/logo.png' phone='(717) 550-1675' />
-            <Sidebar/>
+            <Header
+                logo='images/logo.png'
+                phone='(717) 550-1675'
+            />
+            <MainBlock title="Последние добавленные" />
+            <Footer address='г. Москва, улица Свободы 1/7' paymentMethods={["master-card", "visa", "yandex"]} />
         </div>
     );
 
