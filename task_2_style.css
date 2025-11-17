@@ -88,3 +88,118 @@ body {
   background: #fd9329;
   color: white;
 }
+
+
+.ingredients {
+  margin-top:  15px;
+  border: 1px solid #e7e7e7;
+  border-radius: 6px;
+}
+
+.ingredients h3 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 157%;
+  color: #4e2d2d;
+  margin: 0;
+  padding: 13px 148px 13px 42px;
+  background: #fbe8bb url(../images/cheese.svg) left 12px center no-repeat;
+}
+
+.ingredients ul {
+  list-style: none;
+  padding: 0;
+  margin: 11px 0 0 0;
+  background: #fff;
+}
+
+.ingredients li {
+  padding-bottom: 12px;
+  padding-left: 16px;
+  padding-top: 11px;
+  border-bottom: 1px solid #e7e7e7;
+
+}
+
+.ingredients li:first-child {
+  padding-top: 0;
+}
+
+
+
+.ingredients a {
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #292929;
+}
+
+
+.ingredients a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  column-gap: 30px;
+}
+
+.recipes-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 15px;
+  padding-bottom: 51px;
+  margin-bottom: 38px;
+  border-bottom: 2px solid #e7e7e7;
+  margin-top:  15px;
+}
+
+.recipes-card {
+  display: grid;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recipes-photo {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.recipes-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.recipes-info {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.1) 52.6%, rgba(0, 0, 0, 0.72) 100%);
+  color: #fff;
+  display: grid;
+  align-content: end;
+  padding: 0 0 10px 14px;
+}
+
+.recipes-card-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%;
+  color: #fff;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.link {
+  background: lightblue;
+  justify-self: start;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #fd9339;
+  background: url(../images/orangeIcon.svg) right center no-repeat;
+  padding-right: 10px;
+  text-decoration: none;
+}

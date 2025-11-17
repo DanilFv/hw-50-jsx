@@ -16,7 +16,7 @@
 </head>
 <body>
 
-<div id="app"></div>
+<div id="app" class="container"></div>
 
 
 <script type="text/babel">
@@ -55,7 +55,79 @@
       );
     };
 
-    ReactDOM.render(<Header logo='images/logo.png' phone='(845) 147-6110' />, container);
+
+
+    const CheeseCard = ({name, imgUrl}) => {
+         return (
+             <div className="recipes-card">
+                 <div className="recipes-photo">
+                     <img
+                         src={imgUrl}
+                         alt={name}
+                     />
+                 </div>
+                 <div className="recipes-info">
+                     <h4 className="recipes-card-title">{name}</h4>
+                     <a
+                         href="#"
+                         className="link"
+                     >Смотреть
+                     </a>
+                 </div>
+             </div>
+         );
+    };
+
+    const Sidebar = () => {
+        return (
+            <aside className="sidebar content">
+                <nav className="ingredients">
+                    <h3>Ингредиенты</h3>
+                    <ul>
+                        <li>
+                            <a href="#">Закваски для сыра</a>
+                        </li>
+                        <li>
+                            <a href="#">Ферменты для сыра</a>
+                        </li>
+                        <li>
+                            <a href="#">Хлористый кальций</a>
+                        </li>
+                        <li>
+                            <a href="#">Плесень для сыра</a>
+                        </li>
+                        <li>
+                            <a href="#">Кисломолочные закваски</a>
+                        </li>
+                        <li>
+                            <a href="#">Красители для сыра</a>
+                        </li>
+                        <li>
+                            <a href="#">Специи для сыра</a>
+                        </li>
+                    </ul>
+                </nav>
+                 <div className="recipes-cards">
+                     <CheeseCard name='Молодые сыры' imgUrl="uploads/Receipes-1.jpg" />
+                     <CheeseCard name='Твердые сыры' imgUrl="uploads/img2.png" />
+                     <CheeseCard name='Полутвердые сыры' imgUrl="uploads/img3.png" />
+                     <CheeseCard name='Паста филата' imgUrl="uploads/img4.jpg" />
+                     <CheeseCard name='Кисломолочные сыры' imgUrl="uploads/img5.png" />
+                     <CheeseCard name='Рассольные сыры' imgUrl="uploads/img6.png" />
+                </div>
+            </aside>
+        );
+    };
+
+    const content = (
+        <div className="content-block">
+            <Header logo='images/logo.png' phone='(717) 550-1675' />
+            <Sidebar/>
+        </div>
+    );
+
+
+    ReactDOM.render(content, container);
 
 </script>
 
